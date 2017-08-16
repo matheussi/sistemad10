@@ -4,7 +4,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "_dotnet", ".", "{3491390B-4A08-471F-9ABF-FBFBB1F14550}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		ProjectReferences = ""
+		ProjectReferences = "{60205833-a00a-4864-9a48-c1634c3ae734}|Entidade.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/_dotnet"
 		Debug.AspNetCompiler.PhysicalPath = "..\_dotnet\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\_dotnet\"
