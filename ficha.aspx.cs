@@ -34,6 +34,8 @@ public partial class ficha : System.Web.UI.Page
         txtSaldoDevedor.Attributes.Add("onkeyup", "mascara('" + txtSaldoDevedor.ClientID + "')");
         txtCPFPagador.Attributes.Add("onkeypress", "filtro_SoNumeros(event);mascara_CPF(this, event);");
 
+        //imgCalendar.Attributes.Add("onclick", "javascript:popdate('" + txtHistPagtoData.ClientID + "','pop1','150','');");
+
         if (!IsPostBack)
         {
             txtNovoData.Text = DateTime.Now.ToString("dd/MM/yyyy");
@@ -288,7 +290,7 @@ public partial class ficha : System.Web.UI.Page
         {
             //tipo e forma pagto
             IList<FichaTipo> tipos = Ficha.CarregarTipoPorIdOld(ficha.ID);
-            if (tipos != null && tipos.Count > 0) cboTipo.SelectedValue = CTipos.CToString(tipos[0].CODIGO);
+            //if (tipos != null && tipos.Count > 0) cboTipo.SelectedValue = CTipos.CToString(tipos[0].CODIGO);
 
             var pagtos = FichaPagto.Carregar(
                 Convert.ToInt32(ficha.ID_CLIENTE), Convert.ToInt32(ficha.TIPO_CLIENTE));
@@ -369,7 +371,7 @@ public partial class ficha : System.Web.UI.Page
             FichaAntiga ficha = fichaItens[fichaItens.Count - 1];
 
             IList<FichaTipo> tipos = Ficha.CarregarTipoPorIdOld(ficha.ID);
-            if (tipos != null && tipos.Count > 0) cboTipo.SelectedValue = CTipos.CToString(tipos[0].CODIGO);
+            //if (tipos != null && tipos.Count > 0) cboTipo.SelectedValue = CTipos.CToString(tipos[0].CODIGO);
 
             txtTotalOrcado.Text = ficha.TOTAL_ORCADO.ToString("N2");
 

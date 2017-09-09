@@ -44,7 +44,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
     </AssemblyAttributes>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\nova_versao\Entidade\Entidade.csproj">
+    <ProjectReference Include="nova_versao\Entidade\Entidade.csproj">
       <Project>{60205833-A00A-4864-9A48-C1634C3AE734}</Project>
       <Name>Entidade</Name>
     </ProjectReference>

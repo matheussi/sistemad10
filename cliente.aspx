@@ -34,6 +34,9 @@
     <script src="Scripts/jquery-jvectormap-world-mill-en.js"></script>
     <script src="Scripts/todos.js"></script>
 
+    <script src="Scripts/jquery.click-calendario-1.0-min.js"></script>
+    <script src="Scripts/jquery.click-calendario-1.0.js"></script>
+
     <script src="Scripts/common.js"></script>
     <script src="Scripts/jquery-ui-1.10.4.custom.js"></script>
     <link href="Scripts/jquery-ui-1.10.4.custom.css" rel='stylesheet' type='text/css'>
@@ -71,7 +74,8 @@
                             <div class="form-group">
                                 <label class="col-xs-2 control-label"><asp:Literal ID="lblDataNasc_Data" Text="Nascimento" runat="server"/></label>
                                 <div class="col-xs-2">
-                                    <asp:TextBox runat="server" SkinID="txtPadrao" ID="txtDataNascimento" Width="100%" onkeypress="filtro_SoNumeros(event); mascara_DATA(this, event);" MaxLength="10" />
+                                    <asp:TextBox runat="server" SkinID="txtPadrao" ID="txtDataNascimento" Width="80%" onkeypress="filtro_SoNumeros(event); mascara_DATA(this, event);" Style="float:left;" MaxLength="10" />
+                                    <asp:Image ID="imgCalendar"  CssClass="Float" Style="cursor:pointer; margin-left:5px; margin-top:5px;" ImageUrl="~/Images/calendar.png" runat="server" EnableViewState="false" />
                                 </div>
 
                                 <label class="col-xs-1 control-label"><asp:Literal ID="lblCPF_CNPJ" Text="CPF" runat="server" /></label>
@@ -255,6 +259,29 @@
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            Sys.WebForms.PageRequestManager.getInstance().add_endRequest(configScript);
+
+            configScript(null, null);
+        });
+
+        function configScript(sender, args)
+        {
+            $('#ContentPlaceHolder1_imgCalendar').click(function () {
+                $(this).calendario({
+                    target: '#ContentPlaceHolder1_txtDataNascimento'
+                });
+            });
+        }
+
+
+        /*
+        http://www.tidbits.com.br/click-calendario-plugin-de-jquery-para-calendarios-em-portugues
+        */
+    </script>
 
 <script>
     $('#myTabs a').click(function (e) {

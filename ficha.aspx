@@ -34,6 +34,9 @@
     <script src="Scripts/jquery-jvectormap-world-mill-en.js"></script>
     <script src="Scripts/todos.js"></script>
 
+    <script src="Scripts/jquery.click-calendario-1.0-min.js"></script>
+    <script src="Scripts/jquery.click-calendario-1.0.js"></script>
+
     <script src="Scripts/common.js"></script>
     <script src="Scripts/jquery-ui-1.10.4.custom.js"></script>
     <link href="Scripts/jquery-ui-1.10.4.custom.css" rel='stylesheet' type='text/css'/>
@@ -156,10 +159,9 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="panel-body">
+                    <%--<div class="clearfix"></div>--%>
 
-                    <div class="clearfix"></div>
-
-                    <div class="form-group">
+                    <div class="form-group" runat="server" enableviewstate="false" visible="false">
                         <div class="col-xs-6 text-center">
                             <asp:Button SkinID="botaoPadraoWarning" ID="Button1" Text="Voltar" Width="80px" runat="server" OnClick="cmdVoltar_Click"/>
                         </div>
@@ -262,9 +264,10 @@
                         <div class="form-group">
                             <label class="col-xs-2 control-label text-left">Pagamento:</label>
 
-                            <div class="col-xs-1 text-right" style="margin-top:2px">Data</div>
+                            <div class="col-xs-1 text-right" style="margin-top:5px">Data</div>
                             <div class="col-xs-2 text-left">
-                                <asp:TextBox SkinID="txtPadrao" ID="txtHistPagtoData" Width="90" onkeypress="filtro_SoNumeros(event); mascara_DATA(this, event);" MaxLength="10" runat="server"/>
+                                <asp:TextBox SkinID="txtPadrao" ID="txtHistPagtoData" Width="90" onkeypress="filtro_SoNumeros(event); mascara_DATA(this, event);" Style="float:left;" MaxLength="10" runat="server"/>
+                                <asp:Image ID="imgCalendar"  CssClass="Float" Style="cursor:pointer; margin-left:5px; margin-top:5px;" ImageUrl="~/Images/calendar.png" runat="server" EnableViewState="false" />
                             </div>
 
                             <div class="col-xs-1 text-right" style="margin-top:2px">Forma</div>
@@ -340,14 +343,13 @@
                             <div class="clearfix"></div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group" runat="server" enableviewstate="false" visible="false">
                             <label class="col-xs-2 control-label text-left">Observaçao:</label>
                             <div class="col-xs-10 text-left" style="top:-2px">
                                 <asp:TextBox ID="txtObs" TextMode="MultiLine" runat="server" SkinID="txtPadrao" Width="100%" Rows="5" />
                             </div>
                         </div>
                         <%--<div style="clear:both;"></div>--%>
-                        <div class="clearfix"></div>
                     </div>
 
                     <div class="alert alert-success" role="alert"> <!--Historico de pagamento-->
@@ -440,5 +442,27 @@
         </ContentTemplate>
     </asp:UpdatePanel>
 
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            Sys.WebForms.PageRequestManager.getInstance().add_endRequest(configScript);
+
+            configScript(null, null);
+        });
+
+        function configScript(sender, args)
+        {
+            $('#ContentPlaceHolder1_imgCalendar').click(function () {
+                $(this).calendario({
+                    target: '#ContentPlaceHolder1_txtHistPagtoData'
+                });
+            });
+        }
+
+
+    /*
+    http://www.tidbits.com.br/click-calendario-plugin-de-jquery-para-calendarios-em-portugues
+    */
+    </script>
 </asp:Content>
 
