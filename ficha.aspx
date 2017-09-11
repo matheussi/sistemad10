@@ -1,5 +1,5 @@
 ﻿<%@ Page Theme="padrao" Language="C#" MasterPageFile="~/layout.master" AutoEventWireup="true" CodeFile="ficha.aspx.cs" Inherits="ficha" %>
-
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <script src="Scripts/jquery-1.10.2.min.js"" type="text/javascript"></script>
     <script src="Scripts/bootsrap/bootstrap.js" type="text/javascript"></script>
@@ -267,7 +267,8 @@
                             <div class="col-xs-1 text-right" style="margin-top:5px">Data</div>
                             <div class="col-xs-2 text-left">
                                 <asp:TextBox SkinID="txtPadrao" ID="txtHistPagtoData" Width="90" onkeypress="filtro_SoNumeros(event); mascara_DATA(this, event);" Style="float:left;" MaxLength="10" runat="server"/>
-                                <asp:Image ID="imgCalendar"  CssClass="Float" Style="cursor:pointer; margin-left:5px; margin-top:5px;" ImageUrl="~/Images/calendar.png" runat="server" EnableViewState="false" />
+                                <asp:Image ID="imgCalendar" ToolTip="calendário" CssClass="Float" Style="cursor:pointer; margin-left:5px; margin-top:5px;" ImageUrl="~/Images/calendar.png" runat="server" EnableViewState="false" />
+                                <asp:CalendarExtender ID="ceDataPagto" TargetControlID="txtHistPagtoData" PopupButtonID="imgCalendar" runat="server" TodaysDateFormat="dd/MM/yyyy" Format="dd/MM/yyyy" EnableViewState="false"></asp:CalendarExtender>
                             </div>
 
                             <div class="col-xs-1 text-right" style="margin-top:2px">Forma</div>
@@ -452,11 +453,11 @@
 
         function configScript(sender, args)
         {
-            $('#ContentPlaceHolder1_imgCalendar').click(function () {
-                $(this).calendario({
-                    target: '#ContentPlaceHolder1_txtHistPagtoData'
-                });
-            });
+            //$('#ContentPlaceHolder1_imgCalendar').click(function () {
+            //    $(this).calendario({
+            //        target: '#ContentPlaceHolder1_txtHistPagtoData'
+            //    });
+            //});
         }
 
 

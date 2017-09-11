@@ -1,5 +1,5 @@
 ﻿<%@ Page Theme="padrao" Language="C#" MasterPageFile="~/layout.master" AutoEventWireup="true" CodeFile="cliente.aspx.cs" Inherits="cliente" %>
-
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script src="Scripts/jquery-1.10.2.min.js"" type="text/javascript"></script>
     <script src="Scripts/bootsrap/bootstrap.js" type="text/javascript"></script>
@@ -75,7 +75,8 @@
                                 <label class="col-xs-2 control-label"><asp:Literal ID="lblDataNasc_Data" Text="Nascimento" runat="server"/></label>
                                 <div class="col-xs-2">
                                     <asp:TextBox runat="server" SkinID="txtPadrao" ID="txtDataNascimento" Width="80%" onkeypress="filtro_SoNumeros(event); mascara_DATA(this, event);" Style="float:left;" MaxLength="10" />
-                                    <asp:Image ID="imgCalendar"  CssClass="Float" Style="cursor:pointer; margin-left:5px; margin-top:5px;" ImageUrl="~/Images/calendar.png" runat="server" EnableViewState="false" />
+                                    <asp:Image ID="imgCalendar" ToolTip="calendário" CssClass="Float" Style="cursor:pointer; margin-left:5px; margin-top:5px;" ImageUrl="~/Images/calendar.png" runat="server" EnableViewState="false" />
+                                    <asp:CalendarExtender ID="cetDataNasc" TargetControlID="txtDataNascimento" PopupButtonID="imgCalendar" runat="server" TodaysDateFormat="dd/MM/yyyy" Format="dd/MM/yyyy" EnableViewState="false"></asp:CalendarExtender>
                                 </div>
 
                                 <label class="col-xs-1 control-label"><asp:Literal ID="lblCPF_CNPJ" Text="CPF" runat="server" /></label>
@@ -270,11 +271,11 @@
 
         function configScript(sender, args)
         {
-            $('#ContentPlaceHolder1_imgCalendar').click(function () {
-                $(this).calendario({
-                    target: '#ContentPlaceHolder1_txtDataNascimento'
-                });
-            });
+            //$('#ContentPlaceHolder1_imgCalendar').click(function () {
+            //    $(this).calendario({
+            //        target: '#ContentPlaceHolder1_txtDataNascimento'
+            //    });
+            //});
         }
 
 
