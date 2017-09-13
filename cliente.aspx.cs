@@ -17,8 +17,22 @@ public partial class cliente : System.Web.UI.Page
 
         if (!IsPostBack)
         {
+            this.carregarComoChegou();
             if (!string.IsNullOrEmpty(Request[Keys.IDKey])) this.carregar();
         }
+    }
+
+    void carregarComoChegou()
+    {
+        cboIndicacao.Items.Clear();
+        cboIndicacao.DataValueField = "ID";
+        cboIndicacao.DataTextField = "COMO_CHEGOU";
+
+        cboIndicacao.DataSource = Helper.Instancia.CarregarTipoIndicacao();
+        cboIndicacao.DataBind();
+
+        cboIndicacao.Items.Insert(0, new ListItem("selecione", "0"));
+        cboIndicacao.SelectedIndex = 0;
     }
 
     void carregar()

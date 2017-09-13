@@ -36,6 +36,14 @@
             return LocatorHelper.Instance.ExecuteQuery(sql, "result", pm).Tables[0];
         }
 
+        public DataTable CarregarTipoIndicacao()
+        {
+            string sql = string.Concat(
+            "SELECT * FROM CLI_COMO_CHEGOU  order by COMO_CHEGOU ");
+
+            return LocatorHelper.Instance.ExecuteQuery(sql, "result").Tables[0];
+        }
+
         public DataTable CarregarEspecialidades(PersistenceManager pm = null)
         {
             string sql = string.Concat(

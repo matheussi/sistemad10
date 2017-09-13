@@ -46,11 +46,13 @@ public partial class ficha : System.Web.UI.Page
             if (u.Admin > 0)
             {
                 txtNovoData.ReadOnly = false;
+                imgCalendar.Visible = true;
                 //txtHistPagtoData.ReadOnly = false;
             }
             else
             {
                 txtNovoData.ReadOnly = true;
+                imgCalendar.Visible = false;
                 //txtHistPagtoData.ReadOnly = false;
             }
 

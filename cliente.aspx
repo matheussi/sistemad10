@@ -153,7 +153,7 @@
                                 <label class="col-xs-2 control-label">Como chegou</label>
                                 <div class="col-xs-6">
                                     <asp:DropDownList runat="server" SkinID="comboPadrao1" ID="cboIndicacao" Width="100%">
-                                        <%----%><asp:ListItem Text="selecione" Value="0" Selected="True" />
+                                        <asp:ListItem Text="selecione" Value="0" Selected="True" />
                                         <asp:ListItem Text="Bairro" Value="3" />
                                         <asp:ListItem Text="Indicado" Value="2" />
                                         <asp:ListItem Text="Indicado Clínica" Value="4" />
