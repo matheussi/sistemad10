@@ -1,7 +1,7 @@
 ﻿<%@ Page Theme="padrao" Language="C#" MasterPageFile="~/layout.master" AutoEventWireup="true" CodeFile="cliente.aspx.cs" Inherits="cliente" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <script src="Scripts/jquery-1.10.2.min.js"" type="text/javascript"></script>
+    <script src="Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script src="Scripts/bootsrap/bootstrap.js" type="text/javascript"></script>
 
     <script src="Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
