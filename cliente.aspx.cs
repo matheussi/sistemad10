@@ -18,6 +18,7 @@ public partial class cliente : System.Web.UI.Page
         if (!IsPostBack)
         {
             this.carregarComoChegou();
+            this.carregarPromotores();
             if (!string.IsNullOrEmpty(Request[Keys.IDKey])) this.carregar();
         }
     }
@@ -33,6 +34,19 @@ public partial class cliente : System.Web.UI.Page
 
         cboIndicacao.Items.Insert(0, new ListItem("selecione", "0"));
         cboIndicacao.SelectedIndex = 0;
+    }
+
+    void carregarPromotores()
+    {
+        cboPromotor.Items.Clear();
+        cboPromotor.DataValueField = "ID";
+        cboPromotor.DataTextField = "NOME";
+
+        cboPromotor.DataSource = Helper.Instancia.CarregarPromotores(Request[Keys.EmpresaIDKey]);
+        cboPromotor.DataBind();
+
+        cboPromotor.Items.Insert(0, new ListItem("selecione", "0"));
+        cboPromotor.SelectedIndex = 0;
     }
 
     void carregar()
@@ -68,6 +82,14 @@ public partial class cliente : System.Web.UI.Page
             cboIndicacao.SelectedIndex = 0;
 
         chkStatus.Checked = cli.ATIVO;
+
+        if (cli.ID_Promotor > 0)
+        {
+            pnlPromotor.Visible = true;
+
+            if (cboPromotor.Items.FindByValue(cli.ID_Promotor.ToString()) != null)
+                cboPromotor.SelectedValue = cli.ID_Promotor.ToString();
+        }
 
         litDataCadastro.Text = cli.DT_CRIACAO.ToString("dd/MM/yyyy");
         if (cli.DT_ALTERACAO > DateTime.MinValue) litDataCadastroAlteracao.Text = cli.DT_ALTERACAO.ToString("dd/MM/yyyy");
@@ -113,6 +135,15 @@ public partial class cliente : System.Web.UI.Page
             return;
         }
 
+        if (pnlPromotor.Visible)
+        {
+            if (cboPromotor.SelectedIndex <= 0)
+            {
+                Geral.Alerta(this, "Deve ser informado um promotor.");
+                return;
+            }
+        }
+
         bool clienteNovo = true;
 
         Cliente cli = new Cliente();
@@ -126,6 +157,11 @@ public partial class cliente : System.Web.UI.Page
             if (cli.DT_CRIACAO == DateTime.MinValue) cli.DT_CRIACAO = DateTime.Now;
             clienteNovo = false;
         }
+
+        if (pnlPromotor.Visible)
+            cli.ID_Promotor = CTipos.CToInt(cboPromotor.SelectedValue);
+        else
+            cli.ID_Promotor = 0;
 
         cli.BAIRRO = txtBairro.Text;
         cli.CELULAR = txtCelular.Text;
@@ -161,5 +197,16 @@ public partial class cliente : System.Web.UI.Page
         else
             Response.Redirect(string.Format("ficha.aspx?{0}=1&{1}={2}&{3}={4}&{5}={6}", Keys.NovoKey, Keys.EmpresaIDKey, Request[Keys.EmpresaIDKey], Keys.UsuarioIDKey, Request[Keys.UsuarioIDKey], Keys.ClienteIDKey, cli.ID));
           //Response.Redirect(string.Format("fichas.aspx?{0}={1}&{2}={3}&{4}={5}", Keys.ClienteIDKey, id, Keys.EmpresaIDKey, Request[Keys.EmpresaIDKey], Keys.UsuarioIDKey, Request[Keys.UsuarioIDKey]));
+    }
+    protected void cboIndicacao_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (cboIndicacao.SelectedItem.Text.ToUpper().IndexOf("PROMOTOR") > -1)
+        {
+            pnlPromotor.Visible = true;
+        }
+        else
+        {
+            pnlPromotor.Visible = false;
+        }
     }
 }

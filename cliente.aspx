@@ -151,8 +151,8 @@
 
                             <div class="form-group">
                                 <label class="col-xs-2 control-label">Como chegou</label>
-                                <div class="col-xs-6">
-                                    <asp:DropDownList runat="server" SkinID="comboPadrao1" ID="cboIndicacao" Width="100%">
+                                <div class="col-xs-4">
+                                    <asp:DropDownList runat="server" SkinID="comboPadrao1" ID="cboIndicacao" Width="100%" AutoPostBack="true" OnSelectedIndexChanged="cboIndicacao_SelectedIndexChanged">
                                         <asp:ListItem Text="selecione" Value="0" Selected="True" />
                                         <asp:ListItem Text="Bairro" Value="3" />
                                         <asp:ListItem Text="Indicado" Value="2" />
@@ -162,6 +162,15 @@
                                         <asp:ListItem Text="Telemarketing" Value="8" />
                                     </asp:DropDownList>
                                 </div>
+
+                                <asp:Panel ID="pnlPromotor" Visible="false" runat="server">
+                                    <label class="col-xs-2 control-label text-right" style='margin-top:5px'>Informe o promotor</label>
+                                    <div class="col-xs-4">
+                                        <asp:DropDownList runat="server" SkinID="comboPadrao1" ID="cboPromotor" Width="100%">
+                                            <asp:ListItem Text="selecione" Value="0" Selected="True" />
+                                        </asp:DropDownList>
+                                    </div>
+                                </asp:Panel>
 
                                 <div class="clearfix" style="margin-bottom:15px"></div>
 
