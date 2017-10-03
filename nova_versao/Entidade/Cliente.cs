@@ -232,6 +232,13 @@
             set;
         }
 
+        [DBFieldInfo("ID_PROMOTOR", FieldType.Single)]
+        public int ID_Promotor
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// Joinned
         /// </summary>
