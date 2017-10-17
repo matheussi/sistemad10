@@ -32,7 +32,7 @@
             string cargoId = System.Configuration.ConfigurationManager.AppSettings["id_cargo_promotor"] ;
 
             string sql = string.Concat(
-            "SELECT ID,NOME FROM CLI_USUARIOS WHERE ID_EMPRESA = ",
+            "SELECT ID,NOME FROM CLI_USUARIOS WHERE ATIVO=1 and ID_EMPRESA = ",
             empresaId, " and ID_CARGO in (", cargoId, ") order by NOME ");
 
             return LocatorHelper.Instance.ExecuteQuery(sql, "result", pm).Tables[0];
