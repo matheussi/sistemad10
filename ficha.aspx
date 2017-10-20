@@ -172,7 +172,7 @@
                     </div>
                     <div class="clearfix"></div>
 
-                    <div class="alert alert-success" role="alert">
+                    <div class="alert alert-success"   style="background-color: whitesmoke !important;border-color: gray !important; color:gray !important" role="alert">
                         <asp:Panel ID="pnlHideDate" runat="server" EnableViewState="false" Visible="false">
                             <div class="form-group">
                                 <label class="col-xs-2 control-label text-left">Data: </label>
@@ -239,7 +239,7 @@
                         <div class="clearfix"></div>--%>
                     </div>
 
-                    <div class="alert alert-success" role="alert">
+                    <div class="alert alert-success" role="alert"  style="background-color: whitesmoke !important;border-color: gray !important; color:gray !important">
                         <div class="form-group">
                             <label class="col-xs-2 control-label text-left">Tipo:</label>
                             <div class="col-xs-5 text-left" style="top:-2px">
@@ -258,7 +258,7 @@
                         <div class="clearfix"></div>
                     </div>
 
-                    <div class="alert alert-success" role="alert">
+                    <div class="alert alert-success" role="alert" style="background-color: whitesmoke !important;border-color: gray !important; color:gray !important">
                         
                         <!--Pagamento-->
                         <div class="form-group">
@@ -267,22 +267,22 @@
                             <div class="col-xs-1 text-right" style="margin-top:5px">Data</div>
                             <div class="col-xs-2 text-left">
                                 <asp:TextBox SkinID="txtPadrao" ID="txtHistPagtoData" Width="90" onkeypress="filtro_SoNumeros(event); mascara_DATA(this, event);" Style="float:left;" MaxLength="10" runat="server"/>
-                                <asp:Image ID="imgCalendar" ToolTip="calendário" CssClass="Float" Style="cursor:pointer; margin-left:5px; margin-top:5px;" ImageUrl="~/Images/calendar.png" runat="server" EnableViewState="false" />
-                                <asp:CalendarExtender ID="ceDataPagto" TargetControlID="txtHistPagtoData" PopupButtonID="imgCalendar" runat="server" TodaysDateFormat="dd/MM/yyyy" Format="dd/MM/yyyy" EnableViewState="false"></asp:CalendarExtender>
+                                <asp:Image ID="imgCalendar" ToolTip="calendário" CssClass="Float" Style="cursor:pointer; margin-left:5px; margin-top:5px;" ImageUrl="~/Images/calendar.png" runat="server" EnableViewState="true" />
+                                <asp:CalendarExtender ID="ceDataPagto" TargetControlID="txtHistPagtoData" PopupButtonID="imgCalendar" runat="server" TodaysDateFormat="dd/MM/yyyy" Format="dd/MM/yyyy" EnableViewState="true"></asp:CalendarExtender>
                             </div>
 
-                            <div class="col-xs-1 text-right" style="margin-top:2px">Forma</div>
+                            <div class="col-xs-1 text-right" style="margin-top:4px">Forma</div>
                             <div class="col-xs-2 text-left">
                                 <asp:DropDownList ID="cboTipoPagto" runat="server" SkinID="comboPadrao1" width="100%" AutoPostBack="true" OnSelectedIndexChanged="cboTipoPagto_SelectedIndexChanged" />
                             </div>
 
-                            <div class="col-xs-1 text-right" style="margin-top:2px">R$</div>
+                            <div class="col-xs-1 text-right" style="margin-top:4px">R$</div>
                             <div class="col-xs-1 text-left">
                                 <asp:TextBox ID="txtValorTipoPagto"  SkinID="txtPadrao" Text="0,00" MaxLength="20" Width="65px" runat="server"></asp:TextBox>
                             </div>
 
                             <div class="col-xs-2 text-left" style="margin-top:-3px">
-                                <asp:Button ID="cmdAdicionarTipoPagto" Text="adicionar" SkinID="botaoPadraoSUCCESSVerde" runat="server" OnClick="cmdAdicionarTipoPagto_Click" />
+                                <asp:Button ID="cmdAdicionarTipoPagto" Text="adicionar" SkinID="botaoPadraoSUCCESSVerde"   style="background-color: gray !important;border-color: gray !important; color:white !important" runat="server" OnClick="cmdAdicionarTipoPagto_Click" />
                             </div>
                             
                         </div>
@@ -299,7 +299,7 @@
                         <div class="clearfix"></div>
                     </div>
 
-                    <div class="alert alert-success" role="alert"> <!--Sumario-->
+                    <div class="alert alert-success" role="alert" style="background-color: whitesmoke !important;border-color: gray !important; color:gray !important"> <!--Sumario-->
                         <asp:Panel ID="pnlPagamentoVerAntiga" runat="server" EnableViewState="false" Visible="false">
                         <div class="form-group">
                             <label class="col-xs-2 control-label text-left">Pagamento:</label>
@@ -353,7 +353,7 @@
                         <%--<div style="clear:both;"></div>--%>
                     </div>
 
-                    <div class="alert alert-success" role="alert"> <!--Historico de pagamento-->
+                    <div class="alert alert-success" role="alert" style="background-color: whitesmoke !important;border-color: gray !important; color:gray !important"> <!--Historico de pagamento-->
                         
                         <div class="form-group">
                             <label class="col-xs-2 control-label text-left">Histórico de pagto.:</label>
